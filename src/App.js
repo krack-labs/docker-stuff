@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> time to go.
         </p>
         <a
           className="App-link"
@@ -16,8 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-         learn react
-	  I was changed on the feature branch
+          Learn React
         </a>
       </header>
     </div>
