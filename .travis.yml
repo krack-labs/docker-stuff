@@ -1,22 +1,24 @@
-language: generic
 sudo: required
+language: generic
+
 services:
-        - docker
+  - docker
 
 before_install:
-        - docker build -t kracklabs/docker-stuff -f Dockerfile.dev .
+  - docker build -t kracklabs/dockerapp -f Dockerfile.dev .
 
 script:
-        - docker run -e CI=true kracklabs/docker-stuff npm run test
+  - docker run -e CI=true kracklabs/dockerapp npm test
 
 deploy:
-        provider: elasticbeanstalk
-        region: "us-west-2"
-        app: "dockerapp"
-        env: "dockerapp-env"
-        bucket_name: "elasticbeanstalk-us-west-2-959206288261"
-        bucket_path: "dockerapp"
-        on:
-                branch: master
-        access_key_id: $access_key_id
-        secret_access_key: $secret_access_key
+  provider: elasticbeanstalk
+  region: 'us-west-2'
+  app: 'dockerapp'
+  env: 'dockerapp-env'
+  bucket_name: 'elasticbeanstalk-us-west-2-959206288261'
+  bucket_path: 'dockerapp'
+  on:
+    branch: master
+  access_key_id: $access_key_id
+  secret_access_key: $secret_access_key
+
